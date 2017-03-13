@@ -1,7 +1,7 @@
 <template>
   <div class="top">
-    <md-layout :md-gutter="4">
-      <md-layout v-for="article in articles" md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
+    <md-layout md-align="center" md-gutter="16">
+      <md-layout class="article-card" v-for="article in articles">
         <md-card>
           <md-card-media>
             <img src="assets/card-image-1.jpg" alt="People">
@@ -43,3 +43,9 @@
     },
   };
 </script>
+
+<style>
+  .article-card {
+    margin-bottom: 16px;
+  }
+</style>
