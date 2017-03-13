@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <md-toolbar>
-      <h1 class="md-title">My Title</h1>
+      <h1 class="md-title">News</h1>
     </md-toolbar>
     <!--<img src="./assets/logo.png">-->
     <div class="main-content">

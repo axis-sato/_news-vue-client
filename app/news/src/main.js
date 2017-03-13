@@ -8,6 +8,8 @@ import router from './router';
 
 Vue.config.productionTip = false;
 
+Vue.use(VueMaterial);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -15,5 +17,3 @@ new Vue({
   template: '<App/>',
   components: { App },
 });
-
-Vue.use(VueMaterial);
