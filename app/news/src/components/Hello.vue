@@ -17,16 +17,45 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue!!</a></li>
     </ul>
+
+    <md-layout md-gutter>
+      <md-layout v-for="article in articles" md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
+        <md-card>
+          <md-card-media>
+            <img src="assets/card-image-1.jpg" alt="People">
+          </md-card-media>
+
+          <md-card-header>
+            <div class="md-title">Title goes here</div>
+            <div class="md-subhead">Subtitle here</div>
+          </md-card-header>
+
+          <md-card-actions>
+            <md-button>Action</md-button>
+            <md-button>Action</md-button>
+          </md-card-actions>
+
+          <md-card-content>
+            content
+          </md-card-content>
+        </md-card>
+      </md-layout>
+    </md-layout>
   </div>
 </template>
 
 <script>
+//  import Top from './Top.vue'
 export default {
   name: 'hello',
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
+      articles: [1, 2, 3, 4, 5],
     };
+  },
+  components: {
+//    Top,
   },
 };
 </script>
