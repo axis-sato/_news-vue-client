@@ -1,26 +1,26 @@
 <template>
   <div class="top">
-    <md-layout md-align="center" md-gutter="16">
-      <md-layout class="article-card" v-for="article in articles">
-        <md-card>
+    <md-layout md-gutter="40">
+      <md-layout md-flex="30" class="article-card" v-for="article in articles">
+        <md-card md-with-hover style="width: 100%">
           <md-card-media>
-            <img src="assets/card-image-1.jpg" alt="People">
+            <!--<img src="assets/card-image-1.jpg" alt="People">-->
           </md-card-media>
 
           <md-card-header>
             <div class="md-title">
               {{ article.title }}
             </div>
-            <div class="md-subhead">Subtitle here</div>
+            <!--<div class="md-subhead">Subtitle here</div>-->
           </md-card-header>
 
-          <md-card-actions>
-            <md-button>Action</md-button>
-            <md-button>Action</md-button>
-          </md-card-actions>
+          <!--<md-card-actions>-->
+            <!--<md-button>Action</md-button>-->
+            <!--<md-button>Action</md-button>-->
+          <!--</md-card-actions>-->
 
           <md-card-content>
-            content
+            {{ article.body }}
           </md-card-content>
         </md-card>
       </md-layout>
@@ -33,13 +33,17 @@
     name: 'top',
     data() {
       return {
-        articles: [
-          { title: 'foo' },
-          { title: 'bar' },
-          { title: 'hoge' },
-          { title: 'fuga' },
-        ],
+        articles: [],
       };
+    },
+    created() {
+      console.log('Top page is created');
+      fetch('http://localhost:8080/')
+        .then(response => response.json())
+        .then((json) => {
+          console.log(json);
+          this.articles = json.articles;
+        });
     },
   };
 </script>
