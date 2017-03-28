@@ -3,8 +3,8 @@
     <md-layout md-gutter="40">
       <md-layout md-flex="30" class="article-card" v-for="article in articles">
         <md-card md-with-hover style="width: 100%">
-          <md-card-media>
-            <!--<img src="assets/card-image-1.jpg" alt="People">-->
+          <md-card-media v-if="article.thumbnail">
+            <img :src="article.thumbnail" alt="thumbnail" />
           </md-card-media>
 
           <md-card-header>
