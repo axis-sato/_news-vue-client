@@ -14,14 +14,18 @@
             <!--<div class="md-subhead">Subtitle here</div>-->
           </md-card-header>
 
-          <!--<md-card-actions>-->
-            <!--<md-button>Action</md-button>-->
-            <!--<md-button>Action</md-button>-->
-          <!--</md-card-actions>-->
-
           <md-card-content>
             {{ article.body }}
           </md-card-content>
+
+          <md-card-actions>
+            <md-button class="md-icon-button">
+              <md-icon>favorite</md-icon>
+            </md-button>
+            <md-button class="md-icon-button" :href="article.url" target="_blank">
+              <md-icon>link</md-icon>
+            </md-button>
+          </md-card-actions>
         </md-card>
       </md-layout>
     </md-layout>
