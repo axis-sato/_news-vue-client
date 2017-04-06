@@ -29,6 +29,7 @@
         </md-card>
       </md-layout>
     </md-layout>
+    <md-button @click.native="more" v-if="isNext">more</md-button>
   </div>
 </template>
 
@@ -38,16 +39,34 @@
     data() {
       return {
         articles: [],
+        limit: 3,
+        offset: 0,
+        isNext: true,
       };
     },
     created() {
       console.log('Top page is created');
-      fetch('http://localhost:8080/')
-        .then(response => response.json())
-        .then((json) => {
-          console.log(json);
-          this.articles = json.articles;
-        });
+      this.fetchArticles();
+    },
+    methods: {
+      fetchArticles() {
+        console.log('fetch articles');
+        fetch(`http://localhost:8080/?limit=${this.limit}&offset=${this.offset}`)
+          .then(response => response.json())
+          .then((json) => {
+            console.log(json);
+            const articles = json.articles;
+            if (articles.length > 0) {
+              this.articles = this.articles.concat(articles);
+            }
+            this.offset = json.nextOffset;
+            this.isNext = json.isNext;
+          });
+      },
+      more() {
+        console.log('more');
+        this.fetchArticles();
+      },
     },
   };
 </script>
