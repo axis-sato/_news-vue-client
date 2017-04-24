@@ -41,7 +41,7 @@
         articles: [],
         limit: 3,
         offset: 0,
-        isNext: true,
+        isNext: false,
       };
     },
     created() {
@@ -51,7 +51,7 @@
     methods: {
       fetchArticles() {
         console.log('fetch articles');
-        fetch(`http://localhost:8080/?limit=${this.limit}&offset=${this.offset}`)
+        fetch(`http://localhost:8080/v1?limit=${this.limit}&offset=${this.offset}`)
           .then(response => response.json())
           .then((json) => {
             console.log(json);
